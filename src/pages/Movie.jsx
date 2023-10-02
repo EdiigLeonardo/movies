@@ -41,7 +41,7 @@ const Movie = () => {
     <div className="movie-page">
       {movie && (
         <>
-          <div className="card sm:w-full md:w-[50%] lg:w-[50%] m-auto bg-black shadow-xl h-screen sm:max-h-screen">
+          <div className="card sm:w-full md:w-[50%] lg:w-[50%] m-auto bg-black shadow-xl h-screen">
             <figure className="px-10 pt-10">
               <img src={imagesURL + movie.poster_path} alt={movie.title} className="w-full h-full rounded-xl object-cover"/>
             </figure>

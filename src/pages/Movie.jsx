@@ -12,6 +12,7 @@ import MovieCard from "../components/MovieCard";
 
 const moviesURL = import.meta.env.VITE_API;
 const apiKey = import.meta.env.VITE_API_KEY;
+const imagesURL = import.meta.env.VITE_IMG;
 
 const Movie = () => {
   const { id } = useParams();
@@ -40,31 +41,32 @@ const Movie = () => {
     <div className="movie-page">
       {movie && (
         <>
-          <MovieCard movie={movie} showLink={false} />
-          <p className="tagline">{movie.tagline}</p>
-          <div className="info">
-            <h3>
-              <BsWallet2 /> Orçamento:
-            </h3>
-            <p>{formatCurrency(movie.budget)}</p>
-          </div>
-          <div className="info">
-            <h3>
-              <BsGraphUp /> Receita:
-            </h3>
-            <p>{formatCurrency(movie.revenue)}</p>
-          </div>
-          <div className="info">
-            <h3>
-              <BsHourglassSplit /> Duração:
-            </h3>
-            <p>{movie.runtime} minutos</p>
-          </div>
-          <div className="info description">
-            <h3>
-              <BsFillFileEarmarkTextFill /> Descrição:
-            </h3>
-            <p>{movie.overview}</p>
+          <div className="card sm:w-full md:w-[50%] lg:w-[50%] m-auto bg-black shadow-xl h-screen sm:max-h-screen">
+            <figure className="px-10 pt-10">
+              <img src={imagesURL + movie.poster_path} alt={movie.title} className="w-full h-full rounded-xl object-cover"/>
+            </figure>
+            <div className="card-body items-center text-center">
+              <h2 className="card-title text-6xl text-warning">{movie.title}</h2>
+              <p className="tagline text-white">{movie.tagline}</p>
+              <div className="text-white w-full grid grid-cols-2">
+                <div className="w-full">
+                  <h3 className="flex justify-around px-4">
+                    <BsWallet2 /> Orçamento: <span>{formatCurrency(movie.budget)}</span>
+                  </h3>
+                  
+                  <h3 className="flex justify-around px-4">
+                    <BsGraphUp /> Receita: <span>{formatCurrency(movie.revenue)}</span>
+                  </h3>
+                  
+                  <h3 className="flex justify-around px-4">
+                    <BsHourglassSplit /> Duração: <span>{movie.runtime} minutos</span>
+                  </h3>
+                </div>
+                <div className="w-full overflow-y-auto max-h-full">
+                  <span>{movie.overview}</span>
+                </div>
+              </div>
+            </div>
           </div>
         </>
       )}

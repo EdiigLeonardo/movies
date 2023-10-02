@@ -16,6 +16,7 @@ const MovieCard = ({ movie, showLink = true }) => {
         
         {showLink && <div className="w-full text-center uppercase btn btn-outline btn-warning rounded-m p-2">
            <Link to={`/movie/${movie.id}`}>Detalhes</Link>
+           {/* {console.log(`${movie.title} + ${movie.id}`)} */}
         </div>}
       </div>
     </div>

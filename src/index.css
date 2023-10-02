@@ -9,16 +9,4 @@
   box-sizing: border-box;
 }
 
-body {
-  background-color: #FFF9EC;
-}
 
-a {
-  text-decoration: none;
-  color: #f7d354;
-  transition: 0.5s;
-}
-
-a:hover {
-  color: #b8930c;
-}

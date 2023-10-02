@@ -9,7 +9,6 @@ import {
 
 import MovieCard from "../components/MovieCard";
 
-import "./Movie.css";
 
 const moviesURL = import.meta.env.VITE_API;
 const apiKey = import.meta.env.VITE_API_KEY;
@@ -21,7 +20,6 @@ const Movie = () => {
   const getMovie = async (url) => {
     const res = await fetch(url);
     const data = await res.json();
-    console.log(data);
     setMovie(data);
   };
 
@@ -35,6 +33,7 @@ const Movie = () => {
   useEffect(() => {
     const movieUrl = `${moviesURL}${id}?${apiKey}`;
     getMovie(movieUrl);
+    console.log(movie);
   }, []);
 
   return (

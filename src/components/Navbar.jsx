@@ -16,11 +16,11 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-gray-950">
+    <nav className="bg-gray-900 shadow-xl">
       <div className="container mx-auto py-4 px-6 md:flex md:items-center md:justify-between">
-        <div className="flex items-center justify-between">
-          <h2 className="text-white">
-            <Link to="/" className="flex items-center gap-2">
+        <div className="flex items-center justify-between md:text-xl">
+          <h2 className="text-warning">
+            <Link to="/" className="flex items-center gap-2 text-warning">
               <BiCameraMovie /> MoviesLib
             </Link>
           </h2>
@@ -41,11 +41,11 @@ const Navbar = () => {
               placeholder="Busque um filme"
               onChange={(e) => setSearch(e.target.value)}
               value={search}
-              className="py-2 px-3 rounded border-none"
+              className="py-2 px-3 rounded input input-bordered input-warning w-full max-w-xs"
             />
             <button
               type="submit"
-              className="bg-yellow-400 border-2 border-yellow-400 rounded text-black py-2 px-3 text-lg flex items-center cursor-pointer"
+              className="btn btn-warning rounded text-black py-2 px-3 text-lg flex items-center cursor-pointer"
             >
               <BiSearchAlt2 />
             </button>

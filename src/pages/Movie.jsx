@@ -41,14 +41,14 @@ const Movie = () => {
     <div className="movie-page">
       {movie && (
         <>
-          <div className="card sm:w-full md:w-[50%] lg:w-[50%] m-auto bg-black shadow-xl h-screen">
+          <div className="card sm:w-full md:w-[50%] lg:w-[50%] m-auto bg-base-100 shadow-xl h-screen">
             <figure className="px-10 pt-10">
               <img src={imagesURL + movie.poster_path} alt={movie.title} className="w-full h-full rounded-xl object-cover"/>
             </figure>
             <div className="card-body items-center text-center">
               <h2 className="card-title text-6xl text-warning">{movie.title}</h2>
-              <p className="tagline text-white">{movie.tagline}</p>
-              <div className="text-white w-full grid grid-cols-2">
+              <p className="tagline text-base-content">{movie.tagline}</p>
+              <div className="text-base-content w-full grid grid-cols-2">
                 <div className="w-full">
                   <h3 className="flex justify-around px-4">
                     <BsWallet2 /> Orçamento: <span>{formatCurrency(movie.budget)}</span>

@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
-import Navbar from "./components/Nav/Navbar";
+import Navbar from "./components/ui/Nav/Navbar";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Login from "./components/Login";
 
 const queryClient = new QueryClient();
 
@@ -11,6 +12,7 @@ const App: React.FC = () => {
         <Navbar />
         <Outlet />
       </div>
+      <Login/>
     </QueryClientProvider>
   );
 };

@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
-import MovieCard from "../components/MovieCard";
+import MovieCard from "../components/ui/MovieCard";
 import MoviesGrid from "../layouts/MoviesGrid";
 
 const moviesURL: string | undefined = import.meta.env.VITE_API as string | undefined;

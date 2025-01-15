@@ -1,4 +1,4 @@
-import FilterAside from "@/components/filters/FilterAside";
+import FilterAside from "@/components/ui/Filters/FilterAside";
 import React from "react";
 
 interface MoviesGridProps {

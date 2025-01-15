@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { BiCameraMovie } from "react-icons/bi";
 import ThemeToggle from "@/reducers/Themetoggle";
-import { NavList } from "../../data/navData";
+import { NavList } from "../../../data/navData";
 import NavItem from "./NavItem";
 import SearchBar from "./SearchBar";
 

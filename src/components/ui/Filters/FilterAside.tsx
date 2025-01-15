@@ -1,7 +1,7 @@
-import FilterAvailability from "@/components/filters/FilterAvailability";
-import FilterGenres from "@/components/filters/FilterGenres";
-import FilterView from "@/components/filters/FilterView";
-import FilterDate from "@/components/filters/FilterDate";
+import FilterAvailability from "@/components/ui/Filters/FilterAvailability";
+import FilterGenres from "@/components/ui/Filters/FilterGenres";
+import FilterView from "@/components/ui/Filters/FilterView";
+import FilterDate from "@/components/ui/Filters/FilterDate";
 import React from "react";
 
 type FilterAsideProps = {

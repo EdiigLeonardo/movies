@@ -1,19 +1,8 @@
 import React from "react";
+import genres from "../../../data/genresData";
 
 const FilterGenres: React.FC = () => {
-  const genres = [
-    "Ação e Aventura",
-    "Animação",
-    "Comédia",
-    "Crime",
-    "Documentário",
-    "Drama",
-    "Família",
-    "Fantasia",
-    "Mistério",
-    "Sci-Fi",
-  ];
-
+  
   return (
     <div>
       <h4 className="font-semibold mb-2">Gêneros</h4>
@@ -21,7 +10,7 @@ const FilterGenres: React.FC = () => {
         {genres.map((genre) => (
           <span
             key={genre}
-            className="px-3 py-1 bg-base-300 text-base-content rounded-full text-sm cursor-pointer hover:bg-base-400">
+            className="px-3 py-1 bg-base-300 text-base-content rounded-full text-sm cursor-pointer hover:bg-base-200">
             {genre}
           </span>
         ))}

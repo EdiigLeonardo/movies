@@ -1,6 +1,6 @@
 import { useSearchParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import MovieCard from "../components/MovieCard";
+import MovieCard from "../components/ui/MovieCard";
 import MoviesGrid from "@/layouts/MoviesGrid";
 
 // Definir tipos das variáveis de ambiente

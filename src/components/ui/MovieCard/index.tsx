@@ -4,7 +4,14 @@ import { FaStar } from "react-icons/fa";
 
 const imagesURL = import.meta.env.VITE_IMG;
 
-const MovieCard = ({ movie, showLink = true }) => {
+interface Movie {
+  poster_path: string;
+  title: string;
+  vote_average: number;
+  id: number;
+}
+
+const MovieCard = ({ movie, showLink = true }: { movie: Movie; showLink?: boolean }) => {
   return (
     <div className="card card-side shadow-2xl h-[20rem] p-4 max-[1rem] bg-base-100 rounded-xl border-2 border-solid border-base-200">
       <img src={imagesURL + movie.poster_path} alt={movie.title} className="h-full w-[50%] sm:w-[45%] lg:w-[40%] object-cover lg:block" />

@@ -1,28 +1,45 @@
-import { useEffect, useState } from "react";
+import React from "react";
+import { useQuery } from "@tanstack/react-query";
 import MovieCard from "../components/MovieCard";
 import MoviesGrid from "../layouts/MoviesGrid";
 
-const moviesURL: any = import.meta.env.VITE_API;
-const apiKey: any = import.meta.env.VITE_API_KEY;
+const moviesURL: string | undefined = import.meta.env.VITE_API as string | undefined;
+const apiKey: string | undefined = import.meta.env.VITE_API_KEY as string | undefined;
+
+if (!moviesURL || !apiKey) {
+  console.warn("Environment variables VITE_API or VITE_API_KEY are not defined.");
+}
+
+// Função para buscar os filmes
+const fetchTopRatedMovies = async (): Promise<any> => {
+  const url = `${moviesURL}top_rated?${apiKey}`;
+  const response = await fetch(url);
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch movies.");
+  }
+
+  return response.json();
+};
 
 const Home = () => {
-  const [topMovies, setTopMovies] = useState([]);
+  // Uso do useQuery com o formato correto
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["topRatedMovies"],
+    queryFn: fetchTopRatedMovies,
+  });
 
-  const getTopRatedMovies = async (url: string) => {
-    const res = await fetch(url);
-    const data = await res?.json();
-    await setTopMovies(data.results);
-  };
+  if (isLoading) return <p>Loading movies...</p>;
+  if (error instanceof Error) return <p>Error: {error.message}</p>;
 
-  useEffect(() => {
-    const topRatedUrl = `${moviesURL}top_rated?${apiKey}`;
-    getTopRatedMovies(topRatedUrl);
-  }, []);
+  const topMovies = data?.results ?? [];
 
   return (
     <MoviesGrid title="Melhores filmes:">
-      {topMovies?.length > 0 &&
-        topMovies?.map((movie) => movie && movie?.id ? <MovieCard key={movie?.id} movie={movie} /> : null)}
+      {topMovies.length > 0 &&
+        topMovies.map((movie: any) =>
+          movie && movie.id ? <MovieCard key={movie.id} movie={movie} /> : null
+        )}
     </MoviesGrid>
   );
 };

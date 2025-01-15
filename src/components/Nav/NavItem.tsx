@@ -26,7 +26,7 @@ const NavItem: React.FC<NavItemProps> = ({ link, path, dropList }) => {
       </Link>
       {dropList && (
         <ul
-          className={`absolute top-6 z-50 left-0 bg-gray-800 shadow-lg rounded-lg p-4 space-y-2 ${
+          className={`absolute top-6 z-50 left-0 bg-base-200 shadow-lg rounded-lg p-4 space-y-2 ${
             dropdownOpen ? "block" : "hidden"
           }`}
         >

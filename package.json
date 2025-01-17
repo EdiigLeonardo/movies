@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "vite --open",
     "build": "vite build",
+    "lint": "eslint . --c .ts,.tsx",
     "preview": "vite preview"
   },
   "dependencies": {

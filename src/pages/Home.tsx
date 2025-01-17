@@ -2,12 +2,19 @@ import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import MovieCard from "../components/ui/MovieCard";
 import MoviesGrid from "../layouts/MoviesGrid";
+import ProgressBar from "@/components/ProgressBar";
 
-const moviesURL: string | undefined = import.meta.env.VITE_API as string | undefined;
-const apiKey: string | undefined = import.meta.env.VITE_API_KEY as string | undefined;
+const moviesURL: string | undefined = import.meta.env.VITE_API as
+  | string
+  | undefined;
+const apiKey: string | undefined = import.meta.env.VITE_API_KEY as
+  | string
+  | undefined;
 
 if (!moviesURL || !apiKey) {
-  console.warn("Environment variables VITE_API or VITE_API_KEY are not defined.");
+  console.warn(
+    "Environment variables VITE_API or VITE_API_KEY are not defined."
+  );
 }
 
 // Função para buscar os filmes
@@ -29,7 +36,7 @@ const Home = () => {
     queryFn: fetchTopRatedMovies,
   });
 
-  if (isLoading) return <p>Loading movies...</p>;
+  if (isLoading) return <ProgressBar />;
   if (error instanceof Error) return <p>Error: {error.message}</p>;
 
   const topMovies = data?.results ?? [];

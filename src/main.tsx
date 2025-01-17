@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import AppRoutes from "@/routes/AppRoutes";
 import store from "@/store/store";
 import { ClerkProvider } from "@clerk/clerk-react";
+import MainProvider from "@/providers/MainProvider";
 
 const container = document.getElementById("root");
 // Import your Publishable Key
@@ -19,13 +20,9 @@ if (container) {
   const root = createRoot(container);
   root.render(
     <React.StrictMode>
-      <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl="/">
-        <Provider store={store}>
-          <BrowserRouter>
-            <AppRoutes />
-          </BrowserRouter>
-        </Provider>
-      </ClerkProvider>
+      <MainProvider store={store}>
+              <AppRoutes />
+      </MainProvider>
     </React.StrictMode>
   );
 } else {
